@@ -138,7 +138,7 @@ header nav a,.menu a{font-size:.78rem !important}
 }
 </style>
 <style id="layout-defensive">
-html,body{overflow-x:hidden;max-width:100vw}
+body{overflow-x:clip;max-width:100vw}
 body>*{max-width:100vw}
 @media (min-width:901px){
   aside{position:relative}
@@ -149,6 +149,62 @@ body>*{max-width:100vw}
   aside{width:100% !important;position:static !important;height:auto !important}
   .navbar{flex-wrap:wrap}
 }
+</style>
+<style id="navbar-fixed-override">
+nav.navbar,.header-top,.main-header{position:fixed !important;top:0 !important;left:0 !important;right:0 !important;z-index:1010 !important}
+body{padding-top:60px}
+.hero,.hero-inner,header.hero{padding-top:1rem !important}
+@media (max-width:900px){body{padding-top:90px}}
+</style>
+<style id="sidebar-hover-fix-v2">
+/* Adaptativo: hover preserva color heredado (white en dark sidebar, dark en light) */
+aside .cat-name:hover,aside .sb-home:hover,aside .cat-sub-wrap a:hover,
+aside nav a:hover{color:inherit !important;text-decoration:underline !important;text-underline-offset:3px}
+aside .cat-name,aside .sb-home,aside nav a{color:inherit}
+/* Bg sutil que funciona en cualquier fondo */
+aside .cat-name:hover,aside .sb-home:hover{background:rgba(127,127,127,.12) !important}
+aside .cat-sub-wrap a:hover{background:rgba(127,127,127,.08) !important}
+</style>
+<style id="cat-toggle-no-box">
+.cat-toggle{width:auto !important;min-width:32px;border:none !important;border-left:none !important;background:transparent !important;box-shadow:none !important;padding:.3rem .5rem !important}
+.cat-toggle:hover{background:rgba(127,127,127,.12) !important}
+.cat-arrow{display:inline-block}
+</style>
+<style id="nav-arrow-no-box">
+.nav-arrow,.nav-arrow:hover,.nav-arrow:focus{background:transparent !important;border:none !important;outline:none !important;padding:0 .15rem !important;color:inherit !important;cursor:pointer !important;box-shadow:none !important}
+</style>
+<style id="post-fixes-v2">
+/* Inline links visibles en prosa */
+p a[href^="/"]:not(.cta-btn):not(.hero-cta):not(.nav-contact-btn){color:var(--accent,#1d4ed8) !important;text-decoration:underline !important;text-decoration-color:rgba(29,78,216,.45);text-underline-offset:2px;font-weight:600}
+p a[href^="/"]:not(.cta-btn):not(.hero-cta):not(.nav-contact-btn):hover{text-decoration-color:currentColor;opacity:.85}
+/* Sidebar hover adaptive */
+aside .cat-name:hover,aside .sb-home:hover,aside .cat-sub-wrap a:hover,
+aside nav a:hover{color:inherit !important;text-decoration:underline !important;text-underline-offset:3px}
+aside .cat-name,aside .sb-home,aside nav a{color:inherit}
+aside .cat-name:hover,aside .sb-home:hover{background:rgba(127,127,127,.12) !important}
+/* Cat-toggle sin caja */
+.cat-toggle{width:auto !important;min-width:32px;border:none !important;border-left:none !important;background:transparent !important;box-shadow:none !important;padding:.3rem .5rem !important}
+.cat-toggle:hover{background:rgba(127,127,127,.12) !important}
+/* Nav-arrow sin caja */
+.nav-arrow,.nav-arrow:hover,.nav-arrow:focus{background:transparent !important;border:none !important;outline:none !important;padding:0 .15rem !important;color:inherit !important;cursor:pointer !important;box-shadow:none !important}
+/* Navbar compacto */
+.navbar{padding:.65rem 1rem !important}
+.navbar .nav{gap:.55rem !important}
+.nav-item{font-size:.74rem !important;letter-spacing:.01em !important}
+.logo-box,.brand-name,.brand{font-size:.82rem !important}
+/* Layout defensive */
+body{overflow-x:clip;max-width:100vw}
+body>*{max-width:100vw}
+</style>
+<style id="nav-fix-v3">
+nav.navbar, header nav, .nav-bar, .top-nav { font-size: 1rem !important; }
+nav.navbar a, header nav a, .nav-bar a, .top-nav a, .nav-cat-link, .nav-item a { font-size: 1rem !important; color: #FFFFFF !important; font-weight: 500 !important; }
+nav.navbar a:hover, header nav a:hover, .nav-cat-link:hover { color: #FCD34D !important; text-decoration: underline; }
+nav[aria-label="breadcrumb"], .crumb, .breadcrumb { color: rgba(255,255,255,.85) !important; font-size: .82rem !important; }
+nav[aria-label="breadcrumb"] a, .crumb a, .breadcrumb a { color: #FFFFFF !important; text-decoration: underline; font-weight: 600; }
+nav[aria-label="breadcrumb"] a:hover, .crumb a:hover { color: #FCD34D !important; }
+.crumb a[href="/"], .breadcrumb a[href="/"], a.home-link { color: #FFFFFF !important; }
+.brand-name, .logo-text, .main, .brand { color: #FFFFFF !important; }
 </style>
 </head><body>
 
@@ -180,12 +236,10 @@ body>*{max-width:100vw}
       </div>
     </section>
 <section class="block" style="padding:2rem 1.5rem"><div style="max-width:1200px;margin:0 auto">
-<img src="/img/microzonificacion-sismica-4.webp" alt="Geophysics in Albury-Wodonga" loading="lazy" decoding="async" style="width:100%;max-height:220px;object-fit:cover;display:block;border-radius:6px;margin:1.5rem 0">
+<img src="/img/resistividad-electrica-sev-3.webp" alt="Geophysics in Albury-Wodonga" loading="lazy" decoding="async" style="width:100%;max-height:220px;object-fit:cover;display:block;border-radius:6px;margin:1.5rem 0">
 <p>Geophysics in Albury-Wodonga addresses the subsurface characterisation needs of a region defined by the Murray River floodplain, granitic basement of the Wagga Metamorphic Belt, and overlying alluvial and colluvial deposits. Our geophysical surveys support site <a href="/investigation/">investigation</a> by mapping variations in soil and rock properties, detecting buried channels, and identifying potential geohazards such as reactive clays or shallow groundwater. Work complies with Australian standards including AS 1726 for geotechnical site investigations and relevant state guidelines under the NSW and Victorian environmental planning frameworks, ensuring data is defensible for council approvals and engineering design.</p>
 <p>Field methodologies integrate electrical resistivity tomography, seismic refraction, and ground-penetrating radar, selected to match the variable regolith and water table conditions typical of the Border region. These non-destructive techniques complement intrusive <a href="/in-situ-testing/">In-Situ</a> and are often correlated with <a href="/standard-penetration/">SPT (Standard Penetration Test)</a> results to calibrate geophysical profiles against logged strength and density. All acquisition and processing follow guidelines from the Australian Society of Exploration Geophysicists, with reporting aligned to AS ISO 10012 measurement management requirements. Where fine-grained alluvium is encountered, ground-truthing through <a href="/undisturbed-sampling/">undisturbed sampling (Shelby tube)</a> provides the laboratory validation needed for settlement and liquefaction assessments.</p>
 <p>Typical projects across Albury, Wodonga, and surrounding growth corridors include pre-development site classification for residential subdivisions, foundation assessments for commercial buildings on variable fill, and infrastructure corridors for road and bridge upgrades. Agricultural water storage and levee evaluations also benefit from rapid geophysical scanning. For soft soil profiling under embankments, we routinely deploy the <a href="/flat-dilatometer/">flat dilatometer test (DMT)</a> to capture horizontal stress and overconsolidation ratio, parameters that electromagnetic methods alone cannot resolve. This multi-method approach reduces the number of boreholes required while improving the lateral coverage between test locations.</p>
-<img src="/img/resistividad-electrica-sev-3.webp" alt="Geophysics in Albury-Wodonga" loading="lazy" decoding="async" style="width:100%;max-height:220px;object-fit:cover;display:block;border-radius:6px;margin:1.5rem 0">
-
 <p>Our process begins with a desktop review of regional geological mapping, followed by field acquisition and integrated interpretation. Deliverables include 2D cross-sections, contour maps of bedrock depth or clay thickness, and a factual report with method statements and processed data files. The value lies in targeting subsequent intrusive work precisely where needed, minimising disturbance and project cost while providing a robust conceptual site model. From preliminary desktop studies to detailed engineering geophysics, we equip developers and engineers in Albury-Wodonga with the subsurface certainty required for safe, compliant design.</p></div></section></main>
 </div>
 
@@ -200,7 +254,7 @@ body>*{max-width:100vw}
     if(!el)return;
     var map=L.map(el).setView([-36.0481537,146.9695699],12);
     L.tileLayer('https://{s}.tile-30bf.openstreetmap.org/{z}/{x}/{y}.png',{attribution:'© OpenStreetMap',maxZoom:18}).addTo(map);
-    L.marker([-36.0481537,146.9695699],{icon:L.icon({iconUrl:'/css/images/marker-icon.png',iconRetinaUrl:'/css/images/marker-icon-2x.png',shadowUrl:'/css/images/marker-shadow.png',iconSize:[25,41],iconAnchor:[12,41],popupAnchor:[1,-34],shadowSize:[41,41]})}).addTo(map).bindPopup("Albury-Wodonga").openPopup();
+    L.marker([-36.0481537,146.9695699],{icon:L.divIcon({html:'<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 36\" width=\"24\" height=\"36\"><path d=\"M12 0C5.4 0 0 5.4 0 12c0 9 12 24 12 24s12-15 12-24c0-6.6-5.4-12-12-12z\" fill=\"#E11D48\" stroke=\"#FFF\" stroke-width=\"1.5\"/><circle cx=\"12\" cy=\"12\" r=\"4\" fill=\"#FFF\"/></svg>',className:'',iconSize:[24,36],iconAnchor:[12,36],popupAnchor:[0,-32]})}).addTo(map).bindPopup("Albury-Wodonga").openPopup();
   }
   if(document.readyState==='loading'){document.addEventListener('DOMContentLoaded',init);}else{init();}
 })();
